@@ -18,8 +18,9 @@ symlink() {
     fi
 }
 
-symlink "$DOTFILES/nvim"       "$HOME/.config/nvim"
-symlink "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+symlink "$DOTFILES/nvim"             "$HOME/.config/nvim"
+symlink "$DOTFILES/tmux/.tmux.conf"  "$HOME/.tmux.conf"
+symlink "$DOTFILES/claude/settings.json" "$HOME/.claude/settings.json"
 
 # --- apt packages ---
 apt_install() {
@@ -38,6 +39,14 @@ if grep -q "alias fd=fdfind" "$HOME/.bashrc"; then
 else
     echo "alias fd=fdfind" >> "$HOME/.bashrc"
     echo "added fd alias to .bashrc"
+fi
+
+# --- Claude plugins ---
+if claude plugin list 2>/dev/null | grep -q "code-review-graph"; then
+    echo "claude plugin already installed: code-review-graph"
+else
+    claude plugin marketplace add tirth8205/code-review-graph
+    claude plugin install code-review-graph@code-review-graph
 fi
 
 echo ""
