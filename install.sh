@@ -21,6 +21,7 @@ symlink() {
 symlink "$DOTFILES/nvim"             "$HOME/.config/nvim"
 symlink "$DOTFILES/tmux/.tmux.conf"  "$HOME/.tmux.conf"
 symlink "$DOTFILES/claude/settings.json" "$HOME/.claude/settings.json"
+symlink "$DOTFILES/claude/CLAUDE.md"     "$HOME/.claude/CLAUDE.md"
 
 # --- apt packages ---
 apt_install() {
