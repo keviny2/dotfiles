@@ -42,6 +42,22 @@ else
     echo "added fd alias to .bashrc"
 fi
 
+# --- Rust (required by blink.cmp for fuzzy matching) ---
+if command -v cargo &>/dev/null; then
+    echo "already installed: rust/cargo"
+else
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    echo "installed rust/cargo"
+fi
+
+# --- uv (required by code-review-graph MCP server) ---
+if command -v uvx &>/dev/null; then
+    echo "already installed: uv/uvx"
+else
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    echo "installed uv/uvx"
+fi
+
 # --- Claude plugins ---
 if claude plugin list 2>/dev/null | grep -q "code-review-graph"; then
     echo "claude plugin already installed: code-review-graph"
