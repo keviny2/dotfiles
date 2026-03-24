@@ -32,6 +32,13 @@ apt_install() {
     fi
 }
 
+# --- neovim (stable PPA) ---
+if ! apt-cache policy neovim 2>/dev/null | grep -q "neovim-ppa/stable"; then
+    sudo add-apt-repository ppa:neovim-ppa/stable -y
+    sudo apt update
+fi
+apt_install neovim
+
 apt_install fd-find
 
 # --- shell aliases ---
