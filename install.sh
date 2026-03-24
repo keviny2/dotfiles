@@ -33,7 +33,7 @@ apt_install() {
 }
 
 # --- neovim (official release) ---
-NVIM_VERSION="v0.10.4"
+NVIM_VERSION="v0.11.6"
 if ! nvim --version 2>/dev/null | grep -q "${NVIM_VERSION}"; then
     curl -LO "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
     sudo tar -C /usr/local -xzf nvim-linux-x86_64.tar.gz
