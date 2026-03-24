@@ -32,12 +32,17 @@ apt_install() {
     fi
 }
 
-# --- neovim (stable PPA) ---
-if ! apt-cache policy neovim 2>/dev/null | grep -q "neovim-ppa/stable"; then
-    sudo add-apt-repository ppa:neovim-ppa/stable -y
-    sudo apt update
+# --- neovim (official release) ---
+NVIM_VERSION="v0.10.4"
+if ! nvim --version 2>/dev/null | grep -q "${NVIM_VERSION}"; then
+    curl -LO "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
+    sudo tar -C /usr/local -xzf nvim-linux-x86_64.tar.gz
+    sudo ln -sf /usr/local/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+    rm nvim-linux-x86_64.tar.gz
+    echo "installed neovim ${NVIM_VERSION}"
+else
+    echo "already installed: neovim ${NVIM_VERSION}"
 fi
-apt_install neovim
 
 apt_install fd-find
 
