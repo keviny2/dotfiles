@@ -1,4 +1,18 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(ls *)",
+      "Bash(grep *)",
+      "Bash(tail *)",
+      "Bash(cat *)",
+      "Bash(find *)",
+      "Bash(wc *)",
+      "Bash(awk *)",
+      "Bash(sed *)",
+      "Bash(LOG_DIR=~/data/mode_trips_v23_outlogic/*)",
+      "Bash(LOG_DIR=~/data/*)"
+    ]
+  },
   "model": "sonnet",
   "enabledPlugins": {
     "code-review-graph@code-review-graph": true
@@ -12,5 +26,7 @@
     }
   },
   "syntaxHighlightingDisabled": false,
+  "effortLevel": "low",
+  "tui": "fullscreen",
   "voiceEnabled": true
 }

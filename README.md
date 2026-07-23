@@ -12,11 +12,11 @@ source ~/.bashrc
 
 ## Contents
 
-| Directory | Config |
-|-----------|--------|
-| `nvim/` | Neovim (LazyVim) |
-| `tmux/` | tmux |
-| `claude/` | Claude Code |
+| Directory | Config | Cheat sheet |
+|-----------|--------|-------------|
+| `nvim/` | Neovim (LazyVim) | [nvim/README.md](nvim/README.md) |
+| `tmux/` | tmux | [tmux/README.md](tmux/README.md) |
+| `claude/` | Claude Code | — |
 
 ## Adding a new machine
 
